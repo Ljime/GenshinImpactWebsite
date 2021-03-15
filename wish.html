@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Simulator</title>
+    <link rel="stylesheet" href="wishCSS.css">
+</head>
+
+<body>
+    <main>
+        <div class = "backgroundContainer">
+            <img class = "background" src="./Images/wishBackground2.jpg" alt="">
+            <img class = "xiaoBanner" id = "banner" src="./Images/xiaoBanner.png" alt="">
+            <img class = "gemPicture" src="./Images/gemCount.png" alt="">
+
+            <h2 class = "pityCount" id="pityCount">Wish Count: 0</h2>
+            <h2 class = "wishTotalCount" id="wishTotalCount">Gold Pity Count: 0</h2>
+            <h2 class = "blueCount" id="blueCount">Blue Count: 0</h2>
+            <h2 class = "purpleCount" id="purpleCount">Purple Count: 0</h2>
+            <h2 class = "goldCount" id="goldCount">Gold Count: 0</h2>
+
+            <button class = "rightButton" onclick="changeBannerF()">NEXT</button>
+            <button class = "leftButton" onclick="changeBannerB()">BACK</button>
+
+            <input class="wishButton10" type="image" src="./Images/wish10.png" onclick="wish10()">
+            <input class="wishButton1" type="image" src = "./Images/wish1.png" onclick="wish1()">
+
+            <img class = "blueWish" id="blueWish" src="" alt="">
+            <img class = "purpleWish" id="purpleWish" src="" alt="">
+            <img class = "goldWish" id="goldWish" src="" alt="">
+            <img class = "goldWishTEST" id="goldWishTEST" src="./Gifs/blueWishGif.gif" alt="">
+
+            <input class="skipButton" id="skipButton" type="button" value="SKIP"onclick="skipVideo()">
+        </div>
+
+
+        <!--Java script-->
+        <script type ="text/javascript">
+        // MAKE SURE TO SET ID | ID =/= CLASS 
+        var blueWish = document.getElementById('blueWish');
+        var purpleWish = document.getElementById("purpleWish");
+        var goldWish = document.getElementById("goldWish");
+        var skipButton = document.getElementById("skipButton");
+
+        var pityItem = document.getElementById("pityCount");
+        var blueItem = document.getElementById("blueCount");
+        var purpleItem = document.getElementById("purpleCount");
+        var goldItem = document.getElementById("goldCount");
+        var wishItem = document.getElementById("wishTotalCount");
+
+        var banner = document.getElementById("banner");
+        var delay = 6000;
+        var lastClickTime = 0;
+
+        var pityNum = 0;
+        var wishCount = 0;
+        var blueNum = 0;
+        var purpleNum = 0;
+        var goldNum = 0;
+
+        // Gold = 2, Purple = 1, Blue = 0;
+        var videoColour = 0;
+        var purplePityCount = 0;
+        var goldPityCount = 0;
+        var timeOut;
+
+        function changeBannerF() {
+            if(banner.src.match("./Images/xiaoBanner.png")) {
+                banner.src = "./Images/ganyuBanner.jpg";
+            } else if (banner.src.match("./Images/ganyuBanner.jpg")) {
+                banner.src = "./Images/standardBanner.png";
+            } else if (banner.src.match("./Images/standardBanner.png")) {
+                banner.src = "./Images/xiaoBanner.png";
+            }
+        }
+
+        function changeBannerB() {
+            if(banner.src.match("./Images/xiaoBanner.png")) {
+                banner.src = "./Images/standardBanner.png";
+            } else if (banner.src.match("ganyuBanner.jpg")) {
+                banner.src = "./Images/xiaoBanner.png";
+            } else if (banner.src.match("./Images/standardBanner.png")) {
+                banner.src = "./Images/ganyuBanner.jpg";
+            }
+        }
+
+        function wish1() {
+
+            // CHECKS IF COOLDOWN IS DONE DATE.NOW GIVES TIME, DELAY IS 6 SECONDS
+            if(lastClickTime >= (Date.now() - delay)) {
+                
+            }
+
+            var goldPityRate = 5;
+            // Checks if gold pity coutner is reached then increase odds 
+            if (goldPityCount >= 75) {
+                goldPityRate = 340;
+            }
+            videoColour = 0;
+            var rand = Math.floor(Math.random() * 1000)
+
+            // 0 to 5 inclusive (0.6%)
+            if (rand <= goldPityRate) {
+                goldNum++;
+                videoColour = 2;
+                goldPityCount = 0;
+            //  (5%)
+            } else if (rand >= 949) {
+                purpleNum++;
+                videoColour = 1;
+                purplePityCount = 0;
+                goldPityCount++;
+            } else {
+                if(purplePityCount == 9) {
+                    purpleNum++;
+                    videoColour = 1;
+                    purplePityCount = 0;
+                } else {
+                    blueNum++;
+                    videoColour = 0;
+                    purplePityCount++;
+                }
+                goldPityCount++;
+            }
+            pityNum = pityNum + 1;
+            // Sets last click time again
+            lastClickTime = Date.now();
+            showVideo(videoColour);
+        }
+
+        function wish10() {
+            if(lastClickTime >= (Date.now() - delay)) {
+                
+            }
+            var finalVideoColour = 0;
+            videoColour = 0;
+            
+            for(var i = 0; i < 10; i++) {
+                var goldPityRate = 5;
+                // Checks if gold pity coutner is reached then increase odds 
+                if (goldPityCount >= 75) {
+                    goldPityRate = 340;
+                }
+                var rand = Math.floor(Math.random() * 1000) 
+                // 0 to 5 inclusive (0.6%)
+                if (rand <= goldPityRate) {
+                    goldNum++;
+                    videoColour = 2;
+                    goldPityCount = 0;
+                // 950 to 999 (5%)
+                } else if (rand >= 949) {
+                    purpleNum++;
+                    videoColour = 1;
+                    purplePityCount = 0;
+                    goldPityCount++;
+                } else {
+                    if(purplePityCount == 9) {
+                        purpleNum++;
+                        videoColour = 1;
+                        purplePityCount = 0;
+                    } else {
+                        blueNum++;
+                        videoColour = 0;
+                        purplePityCount++;
+                    }
+                    goldPityCount++;
+                }
+                // Gets the highest colour
+                if(finalVideoColour < videoColour) {
+                    finalVideoColour = videoColour;
+                }
+                pityNum = pityNum + 1;
+            }
+            showVideo(finalVideoColour);
+            lastClickTime = Date.now();
+        }
+
+        function showVideo(videoColour) {
+
+            if(videoColour == 0) {
+                // Resets gif
+                blueWish.src="./Gifs/blueWishRealGif.gif"+"?a="+Math.random();
+                blueWish.style.visibility="visible";
+                timeOut = setTimeout(hideBlueVideo, 5450);
+            } else if (videoColour == 1) {
+                purpleWish.src="./Gifs/purpleWishGif.gif"+"?a="+Math.random();
+                purpleWish.style.visibility="visible";
+                timeOut = setTimeout(hidePurpleVideo, 5460);
+            } else {
+                goldWish.src="./Gifs/goldWishGif.gif"+"?a="+Math.random();
+                goldWish.style.visibility="visible";
+                timeOut = setTimeout(hideGoldVideo, 5230);
+            }
+            skipButton.style.visibility="visible";
+            updateCounters();
+        }
+
+        function skipVideo() {
+            goldWish.style.visibility="hidden";
+            purpleWish.style.visibility="hidden";
+            blueWish.style.visibility="hidden";
+            skipButton.style.visibility="hidden";
+            // Clears the timeout of the gif 
+            clearTimeout(timeOut);
+        }
+
+        function updateCounters() {
+            pityItem.textContent="Wish Count: " + pityNum;
+            blueItem.textContent="Blue Count: " + blueNum;
+            purpleItem.textContent="Purple Count: " + purpleNum;
+            goldItem.textContent="Gold Count: " + goldNum;
+            wishItem.textContent="Gold Pity Count: " + goldPityCount;
+        }
+
+        function hideBlueVideo() {
+            blueWish.style.visibility="hidden";
+            skipButton.style.visibility="hidden";
+        }
+
+        function hidePurpleVideo() {
+            purpleWish.style.visibility="hidden";
+            skipButton.style.visibility="hidden";
+        }
+
+        function hideGoldVideo() {
+            goldWish.style.visibility="hidden";
+            skipButton.style.visibility="hidden";
+        }
+        </script>
+    </main>
+</body>
+</html>

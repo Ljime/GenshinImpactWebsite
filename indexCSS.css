@@ -1,0 +1,241 @@
+body{
+    background-color: whitesmoke;
+    line-height: 0;
+    margin: 0;
+}
+
+.backgroundContainer {
+    position: relative;
+}
+
+.video {
+    width: 100%;
+    display: inline;
+}
+
+.header{
+    position:absolute;
+    background-color: black;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 80px;
+    font-size: 25px;
+    opacity: 0.7;
+    display: inline-block;
+}
+
+.logo {
+    position: relative;
+    top: 0%;
+    left: 0%;
+    height: 80px;
+    opacity: 1;
+}
+
+.charButtonGroup {
+    height: 100%;
+    top: 0%;
+    position: absolute;
+    display: inline-block;
+}
+
+.charButton {
+    height: 80px;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    border: 1px black;
+    opacity: 0.7;
+}
+
+.charButtonContent {
+    display:none;
+    position: absolute;
+    background-color: black;
+    color: white;
+    min-width: 100%;
+    opacity: 0.7;
+}
+
+.charButtonContent button {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-width: 100%;
+    border: black 1px;
+}
+
+.charButtonContent button a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.7;
+    font-size: 20px;
+}
+
+.charButtonContent button:hover {
+    background-color: black;
+    opacity: 1;
+}
+
+.charButtonGroup:hover .charButtonContent {
+    display: block;
+}
+
+.charButtonGroup:hover .charButton {
+    background-color: black;
+    opacity: 1;
+}
+
+.charPFPContainer {
+    display: inline-block;
+}
+
+.charPFP {
+    width: 80px;
+}
+
+.downloadButton {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: #f5c11f;
+    font-size: 25px;
+    outline: none;
+    border: 1px black;
+    height: 80px;
+    width: 200px;
+}
+
+.downloadButton:hover {
+    background-color: #f5bb0c;
+}
+
+.playContainer {
+    position:absolute;
+    top: 50%;
+    left: 44%;
+    opacity: 0.7;
+}
+
+.playButton {
+    position: absolute;
+    font-size: 50px;
+    padding: 50px;
+    width: 300px;
+    background-color: #FF7F50;
+    border: black 1px;
+    opacity: 0.6;
+    outline: none;
+    cursor: pointer;
+}
+
+.wishText {
+    text-decoration: none;
+    color: white;
+}
+
+.playButton:hover {
+    background-color: #FF6347;
+    opacity: 1;
+}
+
+/* */
+
+.monPanel {
+    display: flex;
+    width: auto;
+    height: 200px;
+    background-color: blue;
+    background-image: url(./monstadt/mondstadt.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    transition: transform .5s; /* tells duration of the zoom */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.monTextBack {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.monText {
+    color: white;
+    z-index: 1; /* Make text infront of background*/
+}
+
+.jean {
+    position: absolute;
+    left: 0%;
+    width: 600px;
+    height: 200px;
+    background-image: url(./monstadt/jean.png);
+    background-position-y: 15%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* one second to fade out */
+}
+
+.monPanel:hover .jean {
+    opacity: 1;
+    transition: opacity .5s ease-in-out; /* .55 seconds to fdae in 8 */
+}
+
+.monPanel:hover {
+    transform: scale(1.1); /* Zoom */
+    visibility: visible;
+}
+
+.liyuePanel {
+    display: flex;
+    width: auto;
+    height: 200px;
+    background-color: blue;
+    background-image: url(./monstadt/liyue.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position-y: 40%;
+    transition: transform .5s; /* tells duration of the zoom */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.liyueTextBack {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.liyueText {
+    color: white;
+    z-index: 1; /* Make text infront of background*/
+}
+
+.ning {
+    position: absolute;
+    left: 3%;
+    width: 600px;
+    height: 200px;
+    background-image: url(./liyue/ninng.png);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.liyuePanel:hover .ning {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+.liyuePanel:hover {
+    transform: scale(1.1);
+}

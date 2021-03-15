@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./monstadt.css">
+    <title>Monstadt</title>
+</head>
+<body>
+    
+<div class = "banner"></div>
+
+<div class = "itemBackground">
+    <ul>
+        <li><input type="image" src="./callaLily.png" name="" id="callaLily" class = "callaLily" onclick="callaLily()"></li>
+        <li><input type="image" src="./cecilia.png" name="" id="cecilia" class="cecilia" onclick="cecilia()"></li>
+        <li><input type="image" src="./danelionSeed.png" id="dandelionSeed" class="dandelionSeed"></li>
+        <li><input type="image" src="./philanemoMushroom.png" name="" id="philanemoMushroom" class="philanemoMushroom"></li>
+    </ul>
+
+    <ul>
+        <li><input type="image" src="./smallLampGrass.png" name="" id="smallLampGrass"></li>
+        <li><input type="image" src = "./valBerry.png" name="" id="valBerry"></li>
+        <li><input type="image" src="./windwheelAster.png" name="" id="windwheelAster"></li>
+        <li><input type="image" src="./wolfhook.png" name="" id="wolfhook"></li>
+    </ul>
+</div>
+
+<div class = "itemInfo">
+    <div class = "itemHeader" id="itemHeader">Calla Lily</div>
+    <div class = "desc">Description</div>
+    <div class = "itemText" id="itemText">
+        A flower that grows near water sources. When cooked the petals have a chunky texture, yet are sweet and a little bitter. Modern medicine recognizes Calla Lily's antidotal properties, but its astringent flavor is repulsive to many people.</div>
+    <div class = "obtain">How to Obtain</div>
+
+    <div class = "sources">
+        <ol id="sourceList">
+            <li id="source1">Found near lakes</li>
+            <li id="source2">Found in SpringVale</li>
+            <li id="source3">Sold by Flora</li>
+        </ol>
+    </div>
+
+    <div class = "used">Used By</div>
+
+    <div class = "chars">
+        <ul>
+            <li><img id="char1" src="./kaeya.png" alt=""></li>
+            <li><img id="char2" src="./diona.png" alt=""></li>
+        </ul>
+    </div>
+</div>
+
+    <script>
+        var itemText = document.getElementById("itemText");
+        var sourceList = document.getElementById("sourceList");
+        var source1 = document.getElementById("source1");
+        var source2 = document.getElementById("source2");
+        var source3 = document.getElementById("source3");
+        var char1 = document.getElementById("char1");
+        var char2 = document.getElementById("char2");
+
+        function removeChilds() {
+            sourceList.removeChild(sourceList.childNodes[3]);
+            sourceList.removeChild(sourceList.childNodes[4]);
+        }
+
+        function callaLily() {
+            itemText.innerHTML = "A flower that grows near water sources. When cooked the petals have a chunky texture, yet are sweet and a little bitter. Modern medicine recognizes Calla Lily's antidotal properties, but its astringent flavor is repulsive to many people.";
+            source1.innerHTML = "Found near lakes";
+            source2.innerHTML = "Found in SpringVale";
+            source3.innerHTML = "Sold by Flora";
+            char1.src = "./kaeya.png";
+            char2.src = "./diona.png"
+        }
+
+        function cecilia() {
+            itemText.innerHTML = "A beautiful flower with a name that suits its appearance. It only grows where harsh winds blow, and is just as intangible as the true heart of an unbound soul.";
+            source1.innerHTML = "Found in the wild";
+            source2.innerHTML = "Found on Starsnatch Cliff";
+            source3.innerHTML = "Sold by Flora";
+            char1.src = "./albedo.png";
+            char2.src = "./venti.png"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+body{
+    background-color: black;
+    /* Removes the indented edges */
+    margin: 0;
+}
+
+.backgroundContainer {
+    position: relative;
+    display: flex;
+}
+
+.background {
+    /* Set the width to the entire screen */
+    width: 100%;
+    /* Max height is the max viewpoint of the screen. cannot scroll down */
+    max-height: 100vh;
+}
+
+.bannerContainer {
+    position:absolute;
+}
+
+.xiaoBanner {
+    position: absolute;
+    width:50%;
+    right: 25%;
+    top: 25%;
+}
+
+.rightButton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 20%;
+    top: 50%;
+}
+
+.leftButton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 77.5%;
+    top: 50%;
+}
+
+.wishButton10 {
+    /* Absolute Position, allows it to go anywhere on the screen regardless of other divs */
+    position: absolute;
+    /* Set the width of the button, height automatically scales */
+    width: 300px;
+    /* 85% from the top */
+    top: 85%;
+    /* 20% from the right of the screen */
+    right: 5%;
+    /* Removes button outline when pressing it */
+    outline: none;
+    opacity: .9;
+}
+
+.wishButton10:hover {
+    opacity: 1;
+}
+.wishButton1 {
+    position: absolute;
+    width: 300px;
+    top: 85.2%;
+    right: 23%;
+    outline: none;
+    opacity: .9;
+}
+
+.wishButton1:hover {
+    opacity: 1;
+}
+
+.blueWish {
+    /* Must be absolute because background container is already relative */
+    position: absolute;
+    width: 100%;
+    max-height: 100vh;
+    visibility: hidden;
+}
+ 
+.purpleWish {
+    position: absolute;
+    width: 100%;
+    max-height: 100vh;
+    visibility: hidden;
+}
+ 
+.goldWish {
+    position: absolute;
+    width: 100%;
+    max-height: 100vh;
+    visibility: hidden;
+}
+ 
+.goldWishTEST {
+    position: absolute;
+    visibility: hidden;
+}
+
+.gemPicture {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+}
+
+.pityCount {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    color: white;
+}
+
+.blueCount {
+    position: absolute;
+    top: 4%;
+    left: 1%;
+    color: lightblue;
+}
+
+.purpleCount {
+    position: absolute;
+    top: 7%;
+    left: 1%;
+    color: violet;
+}
+.goldCount {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    color:  gold;
+}
+
+.wishTotalCount {
+    position: absolute;
+    top: 13%;
+    left: 1%;
+    color:  goldenrod;
+}
+
+.skipButton {
+    position: absolute;
+    top: 2%;
+    left: 90%;
+    width: 200px;
+    height: 50px;
+    visibility: hidden;
+}
